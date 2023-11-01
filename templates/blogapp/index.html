@@ -1,0 +1,20 @@
+{% extends "blogapp/base.html" %}
+{% block content %}
+    <a href="{% url 'create' %}">create new blog</a>
+    <hr>
+    <h2>Latest Blog</h2>
+    <div>
+        {%  if posts %}
+            {% for post in posts %}
+            <h2>{{ post.title }}</h2>
+            <a href="{% url 'detail' pk=post.pk %}">view more</a>
+        {% endfor %}
+
+        {% else %}
+             <p>There is no post yet</p>
+
+        {% endif %}
+    </div>
+
+    
+{%  endblock %}
